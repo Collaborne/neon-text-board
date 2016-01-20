@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+	<head>
+		<title>neon-text-board</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+		<script src="../../web-component-tester/browser.js"></script>
+		<script src="../../test-fixture/test-fixture-mocha.js"></script>
+
+		<link rel="import" href="../neon-text-board.html">
+		<link rel="import" href="../../test-fixture/test-fixture.html">
+	</head>
+	<body>
+
+		<test-fixture id="TrivialElement">
+			<template>
+				<neon-text-board text="Example"></neon-text-board>
+			</template>
+		</test-fixture>
+
+		<script>
+			suite('<neon-text-board>', function() {
+				suite('basic behavior', function() {
+					var element;
+
+					setup(function() {
+						element = fixture('TrivialElement');
+					});
+
+					test('requires one test (that always passes)', function() {
+					});
+				});
+			});
+		</script>
+
+	</body>
+</html>

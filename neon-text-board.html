@@ -1,0 +1,42 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+An text board which animates the transition between different texts
+
+### Example
+
+```html
+<neon-text-board text="Hellow world"></neon-text-board>
+```
+
+@demo demo/index.html
+-->
+<dom-module id="neon-text-board">
+	<template>
+		[[text]]
+	</template>
+</dom-module>
+
+<script>
+
+(function() {
+
+	Polymer({
+		is: 'neon-text-board',
+		properties: {
+			/**
+			 * Text that is shown on the board
+			 */
+			text: {
+				type: String,
+				observer: '_onChangedText'
+			}
+		},
+
+		_onChangedText: function() {
+		}
+	});
+
+})();
+
+</script>
