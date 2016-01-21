@@ -1,10 +1,31 @@
+<!doctype html>
 <html>
 	<head>
 	    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+		<link rel="import" href="../../paper-styles/demo-pages.html">
+		<link rel="import" href="../../paper-button/paper-button.html">
 		<link rel="import" href="../neon-text-board.html">
+		<title>Demo</title>
 	</head>
 
 	<body>
-		<neon-text-board text="Hello world"></neon-text-board>
+		<template is="dom-bind">
+			<div class="vertical-section">
+				<neon-text-board text="[[text]]"></neon-text-board>
+			</div>
+
+			<paper-button on-tap="toggleText" raised>Change text</paper-button>
+		</template>
+
+		<script>
+			const text1 = 'Hello world';
+			const text2 = 'Welcome!';
+
+			var scope = document.querySelector('template[is=dom-bind]');
+			scope.text = text1;
+			scope.toggleText = function() {
+				scope.text = scope.text === text1 ? text2 : text1;
+			};
+		</script>
 	</body>
 </html>

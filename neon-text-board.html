@@ -1,4 +1,6 @@
+<!doctype html>
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-styles/typography.html">
 
 <!--
 An text board which animates the transition between different texts
@@ -15,18 +17,30 @@ An text board which animates the transition between different texts
 	<template>
 
 		<style>
+			:host {
+				display: inline-block;
+				position: relative;
+			}
+
 			.text {
 				-webkit-animation-duration: 1s;
 				animation-duration: 1s;
 				-webkit-animation-fill-mode: both;
 				animation-fill-mode: both;
+				margin: 50px 0;
+				@apply(--paper-font-display1);
+			}
+
+			.text2 {
+				position: absolute;
+				top: 0;
 			}
 
 			.enter {
 				-webkit-animation-name: enter;
 				animation-name: enter;
 			}
-			
+
 			.leave {
 				-webkit-animation-name: leave;
 				animation-name: leave;
@@ -85,11 +99,11 @@ An text board which animates the transition between different texts
 			}
 		</style>
 
-		<div class="text enter">
-			[[text]]
+		<div id="text1" class="text">
+			[[_text1]]
 		</div>
-		<div class="text leave">
-			[[_oldText]]
+		<div id="text2" class="text text2">
+			[[_text2]]
 		</div>
 	</template>
 </dom-module>
@@ -108,14 +122,38 @@ An text board which animates the transition between different texts
 					observer: '_onChangedText'
 				},
 
-				_oldText: {
-					type: String,
-					value: ''
+				/**
+				 * Index of the text that is in the foreground. 0 -> text1, 1 -> text2
+				 */
+				_activeText: {
+					type: Number,
+					value: 0
+				},
+				_text1: String,
+				_text2: String
+			},
+
+			_onChangedText: function(newText,oldText) {
+				this._activeText = (this._activeText + 1) % 2;
+				this._text1 = this._activeText === 1 ? newText : oldText;
+				this._text2 = this._activeText === 0 ? newText : oldText;
+
+				// Don't animate the initial set of text
+				if (typeof oldText !== 'undefined') {
+					if (this._activeText === 1) {
+						this._animate("enter", "leave");
+					} else {
+						this._animate("leave", "enter");
+					}
 				}
 			},
 
-			_onChangedText: function() {
+			_animate: function(text1Animation, text2Animation) {
+				this.$.text1.classList.add(text1Animation);
+				this.$.text2.classList.remove(text1Animation);
 
+				this.$.text1.classList.remove(text2Animation);
+				this.$.text2.classList.add(text2Animation);
 			}
 		});
 
