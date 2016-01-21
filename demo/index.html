@@ -5,16 +5,31 @@
 		<link rel="import" href="../../paper-styles/demo-pages.html">
 		<link rel="import" href="../../paper-button/paper-button.html">
 		<link rel="import" href="../neon-text-board.html">
+		<link rel="import" href="../neon-random-text-board.html">
 		<title>Demo</title>
+
+		<style>
+			#randomTextBoard {
+				width: 500px;
+			}
+		</style>
 	</head>
 
 	<body>
 		<template is="dom-bind">
+			<h2>Text board</h2>
 			<div class="vertical-section">
 				<neon-text-board text="[[text]]"></neon-text-board>
 			</div>
 
 			<paper-button on-tap="toggleText" raised>Change text</paper-button>
+
+			<h2>Random text board</h2>
+			<div class="vertical-section">
+				<neon-random-text-board id="randomTextBoard" values="[[texts]]" selected="------------"></neon-random-text-board>
+			</div>
+
+			<paper-button on-tap="next" raised>Next</paper-button>
 		</template>
 
 		<script>
@@ -25,6 +40,11 @@
 			scope.text = text1;
 			scope.toggleText = function() {
 				scope.text = scope.text === text1 ? text2 : text1;
+			};
+
+			scope.texts = [ text1, text2, 'Another text', 'An even better text' ];
+			scope.next = function() {
+				scope.$.randomTextBoard.next();
 			};
 		</script>
 	</body>

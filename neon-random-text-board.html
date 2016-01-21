@@ -1,0 +1,67 @@
+<!doctype html>
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="neon-text-board.html">
+
+<!--
+A text board which shows randomly one of the provided texts.
+
+### Example
+
+```html
+<neon-random-text-board texts="[[arrayOfStrings]]"></neon-random-text-board>
+```
+
+@demo demo/index.html
+-->
+<dom-module id="neon-random-text-board">
+	<template>
+		<style>
+			:host {
+				display: inline-block;
+			}
+
+			.board {
+				width: 100%;
+			}
+		</style>
+
+		<neon-text-board text="[[selected]]" class="board"></neon-text-board>
+	</template>
+</dom-module>
+
+<script>
+	(function() {
+
+		Polymer({
+			is: 'neon-random-text-board',
+			properties: {
+				/**
+				 * List of texts from which one is randomly choosen
+				 */
+				values: Array,
+
+				/**
+				 * Currently shown text
+				 */
+				selected: {
+					type: String,
+					notify: true
+				}
+			},
+
+			/**
+			 * Loads the next random text
+			 */
+			next: function() {
+				if (!Array.isArray(this.values) || this.values.length === 0) {
+					// Ignore if no texts are provided
+					return;
+				}
+
+				var index = Math.floor(Math.random() * this.values.length);
+				this.selected = this.values[index];
+			}
+		});
+
+	})();
+</script>
