@@ -4,9 +4,7 @@ _[Demo and API Docs](http://collaborne.github.io/neon-text-board)_
 neon-text-board [![Bower version](https://badge.fury.io/bo/neon-text-board.svg)](http://badge.fury.io/bo/neon-text-board) [![Travis state](https://travis-ci.org/Collaborne/neon-text-board.svg?branch=master)](https://travis-ci.org/Collaborne/neon-text-board)
 =========
 
-`neon-text-board` dumps HTML bound to a String property directly into the DOM. The web component is built with [Polymer 1.x](https://www.polymer-project.org).
-
-This components is hopefully obsolete sooner or later once Polymer supports directly dumping-HTML. See [Support question](https://github.com/Polymer/polymer/issues/1778#issuecomment-110072317)
+`neon-text-board` provides a text board which animates the transition between different texts. The web component is built with [Polymer 1.x](https://www.polymer-project.org).
 
 To install the element:
 
