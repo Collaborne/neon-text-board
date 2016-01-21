@@ -36,7 +36,7 @@ A text board which shows randomly one of the provided texts.
 			is: 'neon-random-text-board',
 			properties: {
 				/**
-				 * List of texts from which one is randomly choosen
+				 * List of values from which one is randomly choosen
 				 */
 				values: Array,
 
@@ -50,16 +50,28 @@ A text board which shows randomly one of the provided texts.
 			},
 
 			/**
-			 * Loads the next random text
+			 * Selects the another random value
 			 */
 			next: function() {
 				if (!Array.isArray(this.values) || this.values.length === 0) {
-					// Ignore if no texts are provided
+					// Ignore if no values are provided
 					return;
 				}
 
-				var index = Math.floor(Math.random() * this.values.length);
-				this.selected = this.values[index];
+				if (this.values.length === 1) {
+					// Select the only available value
+					this.selected = this.values[0];
+					return;
+				}
+
+				// Select a new random value which is not the current value
+				var currentIndex = this.values.indexOf(this.selected);
+				var nextIndex = undefined;
+				do {
+					nextIndex = Math.floor(Math.random() * this.values.length);
+				} while (nextIndex === currentIndex);
+
+				this.selected = this.values[nextIndex];
 			}
 		});
 
