@@ -16,36 +16,36 @@
 	</head>
 
 	<body>
-		<template is="dom-bind">
-			<h2>Text board</h2>
-			<div class="vertical-section">
-				<neon-text-board text="[[text]]"></neon-text-board>
-			</div>
+		<dom-bind>
+			<template>
+				<h2>Text board</h2>
+				<div class="vertical-section">
+					<neon-text-board text="[[text]]"></neon-text-board><br>
+					<paper-button on-tap="toggleText" raised>Change text</paper-button>
+				</div>
 
-			<paper-button on-tap="toggleText" raised>Change text</paper-button>
+				<h2>Random text board</h2>
+				<div class="vertical-section">
+					<neon-random-text-board id="randomTextBoard" values="[[texts]]" selected="------------"></neon-random-text-board><br>
+					<paper-button on-tap="next" raised>Next</paper-button>
+				</div>
 
-			<h2>Random text board</h2>
-			<div class="vertical-section">
-				<neon-random-text-board id="randomTextBoard" values="[[texts]]" selected="------------"></neon-random-text-board>
-			</div>
+				<script>
+					const text1 = 'Hello world';
+					const text2 = 'Welcome!';
 
-			<paper-button on-tap="next" raised>Next</paper-button>
-		</template>
+					var scope = document.querySelector('dom-bind');
+					scope.text = text1;
+					scope.toggleText = function() {
+						scope.text = scope.text === text1 ? text2 : text1;
+					};
 
-		<script>
-			const text1 = 'Hello world';
-			const text2 = 'Welcome!';
-
-			var scope = document.querySelector('template[is=dom-bind]');
-			scope.text = text1;
-			scope.toggleText = function() {
-				scope.text = scope.text === text1 ? text2 : text1;
-			};
-
-			scope.texts = [ text1, text2, 'Another text', 'An even better text' ];
-			scope.next = function() {
-				scope.$.randomTextBoard.next();
-			};
-		</script>
+					scope.texts = [ text1, text2, 'Another text', 'An even better text' ];
+					scope.next = function() {
+						scope.$.randomTextBoard.next();
+					};
+				</script>
+			</template>
+		</dom-bind>
 	</body>
 </html>

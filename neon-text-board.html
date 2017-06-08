@@ -30,8 +30,8 @@ A text board which animates the transition between different texts
 				margin: 30px 0;
 				text-align: center;
 				width: 100%;
-				@apply(--paper-font-display1);
-				@apply(--neon-text-board-text);
+				@apply --paper-font-display1;
+				@apply --neon-text-board-text;
 			}
 
 			.text2 {
@@ -142,7 +142,7 @@ A text board which animates the transition between different texts
 				this._text2 = this._activeText === 0 ? newText : oldText;
 
 				// Don't animate the initial set of text
-				if (typeof oldText !== 'undefined') {
+				if (oldText) {
 					if (this._activeText === 1) {
 						this._animate("enter", "leave");
 					} else {
