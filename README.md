@@ -1,4 +1,7 @@
 neon-text-board [![Bower version](https://badge.fury.io/bo/neon-text-board.svg)](http://badge.fury.io/bo/neon-text-board) [![Travis state](https://travis-ci.org/Collaborne/neon-text-board.svg?branch=master)](https://travis-ci.org/Collaborne/neon-text-board) [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/Collaborne/neon-text-board)
+
+[![Published on Vaadin  Directory](https://img.shields.io/badge/Vaadin%20Directory-published-00b4f0.svg)](https://vaadin.com/directory/component/Collaborneneon-text-board)
+[![Stars on vaadin.com/directory](https://img.shields.io/vaadin-directory/star/Collaborneneon-text-board.svg)](https://vaadin.com/directory/component/Collaborneneon-text-board)
 =========
 
 `neon-text-board` provides a text board which animates the transition between different texts. The web component is built with [Polymer](https://www.polymer-project.org).
