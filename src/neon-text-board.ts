@@ -35,7 +35,10 @@ export class NeonTextBoard extends LitElement {
 				text-align: center;
 				width: 100%;
 				@apply --paper-font-display1;
-				@apply --neon-text-board-text;
+				font-family: var(--neon-text-board-font-family);
+				font-size: var(--neon-text-board-font-size);
+				font-weight: var(--neon-text-board-font-weight);
+				text-align: var(--neon-text-board-text-align);
 			}
 			.text2 {
 				position: absolute;
