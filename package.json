@@ -8,7 +8,7 @@
   ],
   "homepage": "https://github.com/collaborne/neon-text-board",
   "name": "@collaborne/neon-text-board",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "main": "dist/neon-random-text-board.js",
   "types": "dist/neon-random-text-board.d.ts",
   "author": "collaborne",
