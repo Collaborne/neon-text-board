@@ -1,15 +1,18 @@
 <!doctype html>
 <html>
 	<head>
-	    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-		<link rel="import" href="../../paper-styles/demo-pages.html">
-		<link rel="import" href="../../paper-button/paper-button.html">
-		<link rel="import" href="../neon-text-board.html">
-		<link rel="import" href="../neon-random-text-board.html">
 		<title>Demo</title>
+		<script type="module">
+			import '@webcomponents/webcomponentsjs/webcomponents-loader';
+			import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
+			import '@polymer/iron-demo-helpers/demo-snippet';
+			import '@polymer/paper-button';
+			import '../dist/neon-text-board';
+			import '../dist/neon-random-text-board';
+		</script>
 
 		<style>
-			#randomTextBoard {
+			neon-text-board, #randomTextBoard {
 				width: 500px;
 			}
 		</style>

@@ -1,0 +1,47 @@
+{
+  "description": "An text board which animates the transition between different texts (Polymer)",
+  "keywords": [
+    "web-components",
+    "polymer",
+    "animation",
+    "slot machine"
+  ],
+  "homepage": "https://github.com/collaborne/neon-text-board",
+  "name": "@collaborne/neon-text-board",
+  "version": "4.0.2",
+  "main": "dist/neon-random-text-board.js",
+  "types": "dist/neon-random-text-board.d.ts",
+  "author": "collaborne",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Collaborne/neon-text-board/issues"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Collaborne/neon-text-board.git"
+  },
+  "scripts": {
+    "build": "node_modules/typescript/bin/tsc",
+    "lint": "tslint -c tslint.json \"src/**/*.ts\"",
+    "test": "npm run lint && echo 'No tests yet'",
+    "prepublish": "npm run lint && npm run build",
+    "start-dev": "node_modules/typescript/bin/tsc --watch & polymer serve"
+  },
+  "dependencies": {
+    "@polymer/polymer": "^3.1.0",
+    "lit-element": "^2.1.0"
+  },
+  "devDependencies": {
+    "@polymer/iron-component-page": "^4.0.0",
+    "@polymer/iron-demo-helpers": "^3.0.0",
+    "@polymer/paper-button": "^3.0.1",
+    "polymer-cli": "^1.9.5",
+    "ts-node": "^8.0.3",
+    "tslint": "^5.14.0",
+    "tslint-config-collaborne": "^0.0.4",
+    "typescript": "^3.3.4000"
+  }
+}
